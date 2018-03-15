@@ -1,2 +1,1 @@
-# android-screen-pet
-This project contains all files of our project. 
+This is the v1 project!
