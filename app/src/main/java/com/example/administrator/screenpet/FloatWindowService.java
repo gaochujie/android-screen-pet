@@ -3,13 +3,16 @@ package com.example.administrator.screenpet;
 
 import android.app.ActivityManager;
 import android.app.Service;
+import android.app.usage.UsageStats;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,11 +96,22 @@ public class FloatWindowService extends Service {
 
     /**
      * 判断当前界面是否是桌面
-     */
+
     private boolean isHome() {
         ActivityManager mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> rti = mActivityManager.getRunningTasks(1);
         return getHomes().contains(rti.get(0).topActivity.getPackageName());
+    }*/
+
+    public boolean isHome(){
+        ActivityManager mActivityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> rti = mActivityManager.getRunningTasks(1);
+        List<String> strs = getHomes();
+        if(strs != null && strs.size() > 0){
+            return strs.contains(rti.get(0).topActivity.getPackageName());
+        }else{
+            return false;
+        }
     }
 
     /**
