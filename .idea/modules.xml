@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ScreenPet.iml" filepath="$PROJECT_DIR$/ScreenPet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-screen-pet.iml" filepath="$PROJECT_DIR$/android-screen-pet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
