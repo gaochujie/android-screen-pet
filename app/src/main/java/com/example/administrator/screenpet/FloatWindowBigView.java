@@ -48,7 +48,6 @@ public class FloatWindowBigView extends LinearLayout {
                 MyWindowManager.removeBigWindow(context);
                 MyWindowManager.createSmallWindow(context);
                 Intent intent = new Intent(getContext(), MainSettingActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
