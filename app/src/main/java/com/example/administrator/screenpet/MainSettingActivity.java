@@ -3,16 +3,26 @@ package com.example.administrator.screenpet;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainSettingActivity extends AppCompatActivity {
+import wechat_msg.*;
 
+public class MainSettingActivity extends AppCompatActivity implements MyMessage {
+
+    private ComeWxMessage comeWxMessage;
+    private MyMessage myMessage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_setting);
+
+        myMessage=new MainSettingActivity();
+        comeWxMessage=new ComeWxMessage(myMessage,this);
+        comeWxMessage.toggleNotificationListenerService();
+        comeWxMessage.openSetting();
 
         Button startFloatWindow = (Button)findViewById(R.id.start_float_window);
         startFloatWindow.setOnClickListener(new View.OnClickListener() {
@@ -20,7 +30,7 @@ public class MainSettingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainSettingActivity.this, FloatWindowService.class);
                 startService(intent);
-                finish();
+               // finish();
             }
         });
 
@@ -64,5 +74,15 @@ public class MainSettingActivity extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void comeWxMessage() {
+        Log.e("AAA","====回调中，收到微信消息===");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        comeWxMessage.unRegistBroadcast();
     }
 }

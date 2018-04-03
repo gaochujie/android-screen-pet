@@ -31,7 +31,7 @@ public class MyWindowManager {
             smallWindow = new FloatWindowSmallView(context);
             if(smallWindowParams == null){
                 smallWindowParams = new WindowManager.LayoutParams();
-                smallWindowParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                smallWindowParams.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
                 smallWindowParams.format = PixelFormat.RGBA_8888;
                 smallWindowParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                         | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
@@ -64,7 +64,7 @@ public class MyWindowManager {
                 bigWindowParams = new WindowManager.LayoutParams();
                 bigWindowParams.x = screenWidth / 2 - FloatWindowBigView.viewWidth / 2;
                 bigWindowParams.y = screenHeight / 2 - FloatWindowBigView.viewHeight / 2;
-                bigWindowParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                bigWindowParams.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
                 bigWindowParams.format = PixelFormat.RGBA_8888;
                 bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
                 bigWindowParams.width = FloatWindowBigView.viewWidth;
